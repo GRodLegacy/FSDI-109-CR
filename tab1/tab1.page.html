@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Feed
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Your Feed<ion-icon name="trending-up"></ion-icon></h1>
+  
+
+  <ion-card *ngFor='let msg of messages' >
+      <ion-card-header>
+        <ion-card-title text-center class="from"> {{ msg.from }} </ion-card-title>
+        <ion-card-subtitle text-center class="time"> {{ msg.createdOn | date: 'MM/dd/yy HH:mm' }} </ion-card-subtitle>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <ion-img *ngIf="msg.imageUrl" src="{{ msg.imageUrl }}"></ion-img>
+        <p class="text">{{ msg.text }}</p>
+      </ion-card-content>
+ 
+      
+  </ion-card>
+    
+</ion-content>
